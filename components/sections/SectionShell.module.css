@@ -1,0 +1,65 @@
+.section {
+  padding: var(--section-padding-mobile) 0;
+}
+
+.container {
+  margin: 0 auto;
+  max-width: var(--container-max);
+  padding: 0 1rem;
+}
+
+.header {
+  max-width: 42rem;
+}
+
+.eyebrow {
+  margin-bottom: 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--brand-secondary);
+}
+
+.title {
+  font-size: 1.625rem;
+  line-height: 1.2;
+  color: var(--brand-heading);
+}
+
+.description {
+  margin-top: 0.75rem;
+  font-size: 1rem;
+  line-height: 1.65;
+  color: var(--brand-body);
+}
+
+.content {
+  margin-top: 1.5rem;
+}
+
+@media (min-width: 640px) {
+  .container {
+    padding: 0 1.5rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .section {
+    padding: var(--section-padding-tablet) 0;
+  }
+
+  .title {
+    font-size: 2rem;
+  }
+
+  .content {
+    margin-top: 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .section {
+    padding: var(--section-padding-desktop) 0;
+  }
+}
