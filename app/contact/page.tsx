@@ -4,8 +4,8 @@ export default function ContactPage() {
       <div className="mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-8">
         <h1 className="text-3xl font-bold text-white md:text-4xl">Contact CertPro Plumbing</h1>
         <p className="mt-4 max-w-3xl text-base leading-7 text-slate-300">
-          For immediate issues call our 24/7 line at (816) 555-0192, or submit a request on the home page estimate
-          form for standard scheduling.
+          For immediate issues call our emergency line at (816) 555-0192—we offer fast rapid response and your call is
+          answered by real people—or submit a request on the home page estimate form for standard scheduling.
         </p>
         <div className="mt-6 grid gap-3 sm:max-w-xl sm:grid-cols-2">
           <a

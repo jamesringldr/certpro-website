@@ -15,7 +15,7 @@ const HOURS = [
   { day: 'Mon – Fri',  hours: '7:00 AM – 6:00 PM',  accent: false },
   { day: 'Saturday',   hours: '8:00 AM – 4:00 PM',  accent: false },
   { day: 'Sunday',     hours: 'Emergency Only',       accent: false },
-  { day: 'Emergency',  hours: '24 / 7 / 365',         accent: true  },
+  { day: 'Emergency',  hours: 'Fast Rapid Response', accent: true  },
 ]
 
 const SOCIALS = [

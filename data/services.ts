@@ -23,10 +23,10 @@ export const SERVICES: Service[] = [
   {
     slug: 'emergency-plumbing',
     name: 'Emergency Plumbing',
-    shortDescription: 'Rapid 24/7 response for burst pipes, major leaks, and active water damage.',
+    shortDescription: 'Fast rapid response for burst pipes, major leaks, and active water damage.',
     problem: 'Water is actively damaging your home and every minute increases repair costs.',
     solution: 'We dispatch an emergency tech, isolate the issue fast, and stabilize your plumbing immediately.',
-    responseTime: '24/7 dispatch across the North KC metro.',
+    responseTime: 'Fast rapid response and dispatch across the North KC metro.',
     faqs: [
       { question: 'Do you charge extra at night?', answer: 'We provide transparent pricing before work begins.' },
       { question: 'How fast can someone arrive?', answer: 'Most calls are serviced as quickly as route conditions allow.' },

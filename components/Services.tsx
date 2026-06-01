@@ -33,10 +33,10 @@ const SERVICES = [
   {
     id: 3,
     title: 'Emergency Plumbing & Maintenance',
-    summary: '24/7 emergency response for burst pipes, flooding, sewer backups, and gas leaks.',
+    summary: 'Fast rapid response for burst pipes, flooding, sewer backups, and gas leaks.',
     detail:
-      'Our rapid response team is dispatched within the hour, any time of day or night. We handle burst pipes, severe leaks, sewer backups, and flooding with urgency and precision. We also offer annual maintenance plans — the smartest way to prevent costly emergency calls before they happen.',
-    tags: ['#Emergency', '#24/7', '#RapidResponse', '#MaintenancePlan'],
+      'Our rapid response team is dispatched within the hour when you need help most. We handle burst pipes, severe leaks, sewer backups, and flooding with urgency and precision. We also offer annual maintenance plans — the smartest way to prevent costly emergency calls before they happen.',
+    tags: ['#Emergency', '#FastRapidResponse', '#RapidResponse', '#MaintenancePlan'],
     icon: (
       <svg viewBox="0 0 24 24" className="w-7 h-7" fill="currentColor">
         <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z" />

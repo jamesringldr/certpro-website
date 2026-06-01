@@ -4,13 +4,13 @@ import Image from 'next/image'
 const TRUST_CARDS = [
   {
     imageSrc: '/images/trust/plumbing-trust-1.png',
-    stat: '12+',
+    stat: '30+',
     label: 'Years experience',
   },
   {
     imageSrc: '/images/trust/plumbing-trust-2.png',
-    stat: '24/7',
-    label: 'Emergency response',
+    stat: 'Fast Rapid Response',
+    label: 'Emergency dispatch',
   },
   {
     imageSrc: '/images/trust/plumbing-trust-3.png',
@@ -41,8 +41,8 @@ export default function SocialProofTrustSection() {
         <div>
           <p className="max-w-3xl text-xl leading-relaxed text-slate-300">
             We&apos;ve completed thousands of plumbing jobs across the Kansas City metro. From urgent leak repairs to
-            system upgrades, our family-owned team delivers 24/7 availability, licensed workmanship, and clear
-            communication from first call to final check.
+            system upgrades, our family-owned team delivers fast rapid response, licensed workmanship, and clear
+            communication from first call to final check. Your call is answered by real people—not a robot menu.
           </p>
           <div className="mt-6 grid gap-3 sm:grid-cols-3">
             {TRUST_CARDS.map((card) => (
@@ -50,7 +50,13 @@ export default function SocialProofTrustSection() {
                 <Image src={card.imageSrc} alt={card.label} fill className="object-cover" sizes="(max-width: 768px) 100vw, 33vw" />
                 <div className="absolute inset-0 bg-gradient-to-t from-brand-bg via-brand-bg/55 to-transparent" />
                 <div className="absolute inset-x-0 bottom-0 p-3">
-                  <p className="text-4xl font-bold leading-none text-white">{card.stat}</p>
+                  <p
+                    className={`font-bold leading-tight text-white ${
+                      card.stat.length > 6 ? 'text-2xl sm:text-3xl' : 'text-4xl'
+                    }`}
+                  >
+                    {card.stat}
+                  </p>
                   <p className="mt-1 text-sm font-medium text-slate-200">{card.label}</p>
                 </div>
               </article>
@@ -58,7 +64,7 @@ export default function SocialProofTrustSection() {
           </div>
           <div className="mt-5 flex flex-wrap gap-2 text-xs font-semibold uppercase tracking-[0.12em] text-slate-300">
             <span className="rounded-full border border-brand-border bg-brand-surface px-3 py-1.5">Family-Owned</span>
-            <span className="rounded-full border border-brand-border bg-brand-surface px-3 py-1.5">24/7 Availability</span>
+            <span className="rounded-full border border-brand-border bg-brand-surface px-3 py-1.5">Fast Rapid Response</span>
             <span className="rounded-full border border-brand-border bg-brand-surface px-3 py-1.5">Licensed &amp; Insured</span>
           </div>
         </div>

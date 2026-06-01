@@ -7,11 +7,14 @@ export default function StickyEmergencyBar() {
       style={{ backgroundColor: '#0A0F2C', borderColor: '#1A2555' }}
     >
       <div className="mx-auto flex w-full max-w-7xl flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
-        <div className="flex items-center gap-2 text-xs sm:text-sm">
-          <span className="h-2 w-2 animate-pulse rounded-full" style={{ backgroundColor: '#00D4FF' }} />
-          <p className="font-body font-semibold text-white">
-            Emergency? Reach a licensed plumber in under 60 minutes.
-          </p>
+        <div className="flex flex-col gap-1 text-xs sm:text-sm">
+          <div className="flex items-center gap-2">
+            <span className="h-2 w-2 shrink-0 animate-pulse rounded-full" style={{ backgroundColor: '#00D4FF' }} />
+            <p className="font-body font-semibold text-white">
+              Emergency? Fast rapid response — reach a licensed plumber in under 60 minutes.
+            </p>
+          </div>
+          <p className="pl-4 font-body text-[11px] text-slate-400 sm:text-xs">Your call is answered by real people.</p>
         </div>
 
         <div className="grid grid-cols-2 gap-2 sm:flex">

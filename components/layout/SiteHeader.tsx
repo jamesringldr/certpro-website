@@ -38,7 +38,10 @@ export default function SiteHeader() {
       </div>
       <div className={styles.utilityBar}>
         <div className={styles.utilityInner}>
-          <span>24/7 Emergency Response</span>
+          <div className={styles.utilityMessaging}>
+            <span>Fast Rapid Response</span>
+            <span className={styles.utilitySubline}>Your call is answered by real people.</span>
+          </div>
           <a
             href="tel:+18165550192"
             className={styles.callLink}

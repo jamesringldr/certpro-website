@@ -6,7 +6,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 const FAQS = [
   {
     q: 'How quickly can you respond to a plumbing emergency?',
-    a: 'Our emergency response team is available 24/7 and aims to arrive within 60 minutes of your call anywhere in the Kansas City metro. For burst pipes, flooding, or gas leaks, we prioritize your safety and respond immediately — any time of day or night.',
+    a: 'Our emergency response team delivers fast rapid response and aims to arrive within 60 minutes of your call anywhere in the Kansas City metro. Your call is answered by real people. For burst pipes, flooding, or gas leaks, we prioritize your safety and respond immediately.',
   },
   {
     q: 'Are your plumbers licensed and insured?',

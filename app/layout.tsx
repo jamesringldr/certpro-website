@@ -3,7 +3,7 @@ import './globals.css'
 import LayoutShell from '@/components/layout/LayoutShell'
 
 export const metadata: Metadata = {
-  title: 'CertPro Plumbing | 24/7 North KC Plumbing',
+  title: 'CertPro Plumbing | Fast Rapid Response North KC Plumbing',
   description:
     'Mobile-first plumbing website for emergency response, service booking, and free estimate capture across North Kansas City.',
   keywords:

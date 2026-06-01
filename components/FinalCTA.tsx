@@ -39,13 +39,13 @@ export default function FinalCTA() {
           <div className="inline-flex items-center gap-2 mb-6">
             <div className="w-2 h-2 rounded-full bg-white animate-pulse" />
             <span className="font-body font-semibold text-xs tracking-[0.22em] uppercase text-white/80">
-              Available 24 hours a day, 7 days a week
+              Fast Rapid Response — Real People Answer Your Call
             </span>
           </div>
 
           <h2 className="font-heading font-black text-4xl sm:text-5xl lg:text-6xl uppercase text-white leading-[0.95] mb-6">
             NEED FAST PLUMBING SERVICE?<br />
-            WE&apos;RE READY 24/7!
+            WE&apos;RE READY — FAST RAPID RESPONSE!
           </h2>
 
           <p className="font-body text-white/75 text-lg mb-10 max-w-xl mx-auto leading-relaxed">

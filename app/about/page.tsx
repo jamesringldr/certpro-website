@@ -4,8 +4,8 @@ export default function AboutPage() {
       <div className="mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-8">
         <h1 className="text-3xl font-bold text-white md:text-4xl">About CertPro Plumbing</h1>
         <p className="mt-4 max-w-3xl text-base leading-7 text-slate-300">
-          CertPro is a family-owned plumbing company focused on fast response, clear communication, and dependable
-          workmanship across North Kansas City.
+          CertPro is a family-owned plumbing company focused on fast rapid response, clear communication, and dependable
+          workmanship across North Kansas City. Your call is answered by real people—not a robot menu.
         </p>
         <div className="mt-6 flex flex-col gap-3 sm:flex-row">
           <a

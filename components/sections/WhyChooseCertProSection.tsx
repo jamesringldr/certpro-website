@@ -7,7 +7,8 @@ const BENEFITS = [
   },
   {
     title: 'Rapid Emergency Response',
-    description: '24/7 dispatch support to reduce damage and restore plumbing service quickly.',
+    description:
+      'Fast rapid response and live dispatch support to reduce damage and restore plumbing service quickly. Real people answer your call.',
   },
   {
     title: 'Certified Workmanship',

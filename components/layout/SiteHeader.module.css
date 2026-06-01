@@ -73,6 +73,21 @@
   color: var(--brand-heading);
 }
 
+.utilityMessaging {
+  display: flex;
+  flex-direction: column;
+  gap: 0.125rem;
+  min-width: 0;
+}
+
+.utilitySubline {
+  font-size: 0.625rem;
+  font-weight: 500;
+  line-height: 1.2;
+  color: var(--brand-body);
+  opacity: 0.85;
+}
+
 @media (min-width: 640px) {
   .container,
   .utilityInner {

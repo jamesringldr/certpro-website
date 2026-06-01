@@ -25,7 +25,8 @@ export default function TrustBar() {
                 Trusted by 13K+ Kansas City homeowners
               </p>
               <p className="mt-1 font-body text-sm text-gray-600">
-                State licensed, fully insured, and 24/7 emergency dispatch.
+                State licensed, fully insured, with fast rapid response and emergency dispatch. Your call is answered by
+                real people.
               </p>
             </div>
             <div className="flex flex-col gap-3 sm:flex-row">
@@ -74,7 +75,7 @@ export default function TrustBar() {
             </h2>
 
             <p className="font-body text-gray-600 text-lg leading-relaxed mb-8">
-              With over a decade of experience serving Kansas City homeowners and commercial
+              With 30+ years of experience serving Kansas City homeowners and commercial
               clients, CertPro Plumbing has built a reputation for quality, reliability, and
               transparent pricing. Our certified technicians arrive on time, diagnose accurately,
               and fix it right the first time — guaranteed.

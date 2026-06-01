@@ -6,7 +6,7 @@ import { motion } from 'framer-motion'
 const STATS = [
   { value: '4.5K+', label: 'Projects Done' },
   { value: '13K+',  label: 'Satisfied Customers' },
-  { value: '10+',   label: 'Years of Experience' },
+  { value: '30+',   label: 'Years of Experience' },
 ]
 
 const fadeUp = (delay = 0) => ({
@@ -65,15 +65,15 @@ export default function Hero() {
           className="object-contain object-bottom"
         />
 
-        {/* 24/7 badge — anchored to bottom-right of mascot area */}
+        {/* Fast rapid response badge — anchored to bottom-right of mascot area */}
         <div
-          className="pointer-events-auto absolute bottom-12 right-8 w-20 h-20 rounded-2xl flex flex-col items-center justify-center shadow-2xl"
+          className="pointer-events-auto absolute bottom-12 right-8 flex max-w-[9.5rem] flex-col items-center justify-center rounded-2xl px-2 py-2.5 text-center shadow-2xl"
           style={{ backgroundColor: '#00D4FF' }}
         >
-          <span className="font-heading font-black text-2xl leading-none" style={{ color: '#0A0F2C' }}>
-            24/7
+          <span className="font-heading text-[11px] font-black uppercase leading-snug sm:text-xs" style={{ color: '#0A0F2C' }}>
+            Fast Rapid Response
           </span>
-          <span className="font-body text-[10px] font-bold" style={{ color: '#0A0F2C' }}>
+          <span className="font-body mt-1 text-[9px] font-bold uppercase tracking-wide" style={{ color: '#0A0F2C' }}>
             Emergency
           </span>
         </div>
@@ -127,7 +127,7 @@ export default function Hero() {
           >
             Serving homeowners and businesses across Kansas City with certified,
             reliable plumbing solutions. From emergency repairs to full installations —
-            we&apos;re here when you need us most.
+            we&apos;re here when you need us most. Your call is answered by real people.
           </motion.p>
 
           {/* CTAs */}

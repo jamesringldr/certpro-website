@@ -172,7 +172,8 @@ export default function LeadCaptureSection() {
         <aside className="space-y-4 rounded-xl border border-brand-border bg-brand-surface p-5 md:p-6">
           <h3 className="text-lg font-bold text-white">Need help right now?</h3>
           <p className="text-sm leading-6 text-slate-300">
-            Emergency issues should not wait for form replies. Tap the call button for immediate dispatch support.
+            Emergency issues should not wait for form replies. Tap the call button for fast rapid response—your call is
+            answered by real people, not voicemail trees.
           </p>
           <a
             href="tel:+18165550192"
@@ -187,6 +188,7 @@ export default function LeadCaptureSection() {
             Call (816) 555-0192
           </a>
           <ul className="space-y-2 text-sm text-slate-300">
+            <li>Live answers from real people</li>
             <li>Family-owned local team</li>
             <li>Licensed and insured professionals</li>
             <li>Transparent quote-first process</li>
