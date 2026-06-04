@@ -138,7 +138,7 @@ export default function Hero() {
             className="flex flex-col sm:flex-row gap-4 mb-6"
           >
             <a
-              href="tel:+15551234567"
+              href="tel:+18164540247"
               className="font-body font-bold text-sm px-9 py-4 text-center rounded transition-all duration-200 hover:brightness-110 active:scale-95 cursor-pointer"
               style={{ backgroundColor: '#00D4FF', color: '#0A0F2C' }}
             >

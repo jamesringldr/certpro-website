@@ -68,7 +68,7 @@ export default function Navbar() {
           {/* Desktop CTA */}
           <div className="hidden md:flex items-center gap-3">
             <a
-              href="tel:+15551234567"
+              href="tel:+18164540247"
               className="inline-block font-body font-bold text-sm px-6 py-2.5 rounded transition-all duration-200 hover:brightness-110 active:scale-95 cursor-pointer"
               style={{ backgroundColor: '#00D4FF', color: '#0A0F2C' }}
             >
@@ -130,7 +130,7 @@ export default function Navbar() {
                 </a>
               ))}
               <a
-                href="tel:+15551234567"
+                href="tel:+18164540247"
                 onClick={close}
                 className="mt-1 text-center font-body font-bold text-sm py-3 rounded cursor-pointer"
                 style={{ backgroundColor: '#00D4FF', color: '#0A0F2C' }}

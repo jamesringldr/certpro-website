@@ -8,16 +8,22 @@ export type Service = {
   faqs: Array<{ question: string; answer: string }>
 }
 
-export const SERVICE_AREAS = [
-  'Liberty',
-  'Gladstone',
-  'Parkville',
-  'Smithville',
-  'Platte City',
-  'Kearney',
-  'Riverside',
-  'North Kansas City',
-]
+/** Counties within ~50 miles of Jackson County, MO, nearest first. */
+export const SERVICE_COUNTIES_MISSOURI = [
+  'Jackson County',
+  'Clay County',
+  'Platte County',
+  'Cass County',
+  'Clinton County',
+] as const
+
+export const SERVICE_COUNTIES_KANSAS = [
+  'Wyandotte County',
+  'Johnson County',
+  'Leavenworth County',
+  'Douglas County',
+  'Atchison County',
+] as const
 
 export const SERVICES: Service[] = [
   {

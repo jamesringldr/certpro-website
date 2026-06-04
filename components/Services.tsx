@@ -246,7 +246,7 @@ export default function Services() {
 
                             <div className="flex flex-col gap-3 sm:flex-row">
                               <a
-                                href="tel:+15551234567"
+                                href="tel:+18164540247"
                                 className="inline-flex min-h-11 items-center justify-center rounded px-6 py-2.5 text-sm font-bold transition-all duration-200 hover:brightness-110"
                                 style={{ backgroundColor: '#00D4FF', color: '#0A0F2C' }}
                               >

@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import BookServiceButton from '@/components/booking/BookServiceButton'
 import { SERVICES } from '@/data/services'
 
 export default function ServicesPage() {
@@ -11,17 +12,12 @@ export default function ServicesPage() {
         </p>
         <div className="mt-6 flex flex-col gap-3 sm:flex-row">
           <a
-            href="tel:+18165550192"
+            href="tel:+18164540247"
             className="inline-flex min-h-11 items-center justify-center rounded-md bg-brand-primary px-5 py-2 text-sm font-semibold text-white"
           >
             Call Now for Fast Dispatch
           </a>
-          <Link
-            href="/contact"
-            className="inline-flex min-h-11 items-center justify-center rounded-md border border-brand-secondary px-5 py-2 text-sm font-semibold text-brand-secondary"
-          >
-            Book Service
-          </Link>
+          <BookServiceButton entrypoint="service_cta">Book Service</BookServiceButton>
         </div>
         <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {SERVICES.map((service) => (
@@ -36,7 +32,7 @@ export default function ServicesPage() {
                   Open Service Page
                 </Link>
                 <a
-                  href="tel:+18165550192"
+                  href="tel:+18164540247"
                   className="inline-flex min-h-11 items-center rounded-md border border-brand-secondary px-4 py-2 text-sm font-semibold text-brand-secondary"
                 >
                   Call Now

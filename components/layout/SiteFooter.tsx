@@ -79,8 +79,8 @@ export default function SiteFooter() {
           <div className={styles.column}>
             <h3 className={styles.columnTitle}>Contact Us</h3>
             <span className={styles.contactText}>Kansas City Metro</span>
-            <a href="tel:+18165550192" className={styles.contactText}>
-              (816) 555-0192
+            <a href="tel:+18164540247" className={styles.contactText}>
+              (816) 454-0247
             </a>
             <a href="mailto:info@certproplumbing.com" className={styles.contactText}>
               info@certproplumbing.com

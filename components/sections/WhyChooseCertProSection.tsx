@@ -1,18 +1,27 @@
 import Image from 'next/image'
+import type { LucideIcon } from 'lucide-react'
+import { BadgeDollarSign, ShieldCheck, Zap } from 'lucide-react'
 
-const BENEFITS = [
+const BENEFITS: {
+  title: string
+  description: string
+  icon: LucideIcon
+}[] = [
   {
     title: 'Predictable Pricing',
     description: 'Upfront recommendations and clear estimates before any repair work starts.',
+    icon: BadgeDollarSign,
   },
   {
     title: 'Rapid Emergency Response',
     description:
       'Fast rapid response and live dispatch support to reduce damage and restore plumbing service quickly. Real people answer your call.',
+    icon: Zap,
   },
   {
     title: 'Certified Workmanship',
     description: 'Licensed and insured technicians focused on durable, code-aligned repairs.',
+    icon: ShieldCheck,
   },
 ]
 
@@ -47,17 +56,24 @@ export default function WhyChooseCertProSection() {
         </article>
 
         <div className="space-y-4">
-          {BENEFITS.map((benefit) => (
-            <article key={benefit.title} className="flex gap-4 rounded-2xl border border-brand-border bg-brand-surface p-4">
-              <div className="mt-0.5 inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-brand-border bg-brand-bg text-brand-secondary">
-                <span className="text-lg">▢</span>
-              </div>
-              <div>
-                <h3 className="text-xl font-semibold text-white">{benefit.title}</h3>
-                <p className="mt-1 text-sm leading-6 text-slate-300">{benefit.description}</p>
-              </div>
-            </article>
-          ))}
+          {BENEFITS.map((benefit) => {
+            const Icon = benefit.icon
+
+            return (
+              <article key={benefit.title} className="flex gap-4 rounded-2xl border border-brand-border bg-brand-surface p-4">
+                <div
+                  className="mt-0.5 inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-brand-border bg-brand-bg text-brand-secondary"
+                  aria-hidden
+                >
+                  <Icon size={22} strokeWidth={2} />
+                </div>
+                <div>
+                  <h3 className="text-xl font-semibold text-white">{benefit.title}</h3>
+                  <p className="mt-1 text-sm leading-6 text-slate-300">{benefit.description}</p>
+                </div>
+              </article>
+            )
+          })}
         </div>
       </div>
     </section>

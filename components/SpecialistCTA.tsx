@@ -48,7 +48,7 @@ export default function SpecialistCTA() {
 
             <div className="flex flex-col sm:flex-row gap-4">
               <a
-                href="tel:+15551234567"
+                href="tel:+18164540247"
                 className="inline-block font-body font-bold text-sm px-10 py-4 rounded text-center transition-all duration-200 hover:brightness-110 active:scale-95 cursor-pointer"
                 style={{ backgroundColor: '#00D4FF', color: '#0A0F2C' }}
               >

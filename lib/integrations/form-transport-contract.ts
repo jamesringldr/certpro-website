@@ -4,11 +4,15 @@ export type FormTransportDestination = 'internal' | 'google_sheets' | 'dual_writ
 
 export type FormRequestSource = 'ui' | 'api'
 
+export type PreferredContactMethod = 'text' | 'call'
+
 export interface EstimateFormSubmissionPayload {
   form_type: 'contact' | 'booking' | 'callback'
   name: string
   phone: string
   email?: string
+  preferred_contact_method?: PreferredContactMethod
+  address?: string
   service?: string
   message?: string
   consent: boolean
@@ -16,6 +20,10 @@ export interface EstimateFormSubmissionPayload {
   source_page_path: string
   submitted_at: string
   source?: FormRequestSource
+  /** Honeypot — must be empty for legitimate submissions. */
+  website?: string
+  /** Client timestamp when the form first rendered. */
+  form_started_at?: string
 }
 
 export type FormSubmissionErrorCode =

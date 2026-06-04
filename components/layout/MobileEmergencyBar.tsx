@@ -1,6 +1,6 @@
 'use client'
 
-import Link from 'next/link'
+import BookServiceButton from '@/components/booking/BookServiceButton'
 import { trackGa4Event } from '@/lib/analytics/ga4'
 
 export default function MobileEmergencyBar() {
@@ -11,7 +11,7 @@ export default function MobileEmergencyBar() {
     >
       <div className="mx-auto grid max-w-[1200px] grid-cols-2 gap-3">
         <a
-          href="tel:+18165550192"
+          href="tel:+18164540247"
           onClick={() => {
             trackGa4Event('call_click', {
               entrypoint: 'sticky_bar',
@@ -22,18 +22,12 @@ export default function MobileEmergencyBar() {
         >
           Call Now
         </a>
-        <Link
-          href="/contact"
-          onClick={() => {
-            trackGa4Event('book_click', {
-              entrypoint: 'sticky_bar',
-              page_path: window.location.pathname,
-            })
-          }}
-          className="inline-flex min-h-11 items-center justify-center rounded-md border border-brand-secondary px-3 py-2 text-sm font-semibold text-brand-secondary"
+        <BookServiceButton
+          entrypoint="sticky_bar"
+          className="inline-flex min-h-11 w-full items-center justify-center rounded-md border border-brand-secondary px-3 py-2 text-sm font-semibold text-brand-secondary"
         >
           Book Now
-        </Link>
+        </BookServiceButton>
       </div>
     </div>
   )

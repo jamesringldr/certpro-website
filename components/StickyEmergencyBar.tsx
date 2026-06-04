@@ -19,7 +19,7 @@ export default function StickyEmergencyBar() {
 
         <div className="grid grid-cols-2 gap-2 sm:flex">
           <a
-            href="tel:+15551234567"
+            href="tel:+18164540247"
             className="inline-flex min-h-11 items-center justify-center rounded px-4 py-2 text-sm font-bold transition-all duration-200 hover:brightness-110"
             style={{ backgroundColor: '#00D4FF', color: '#0A0F2C' }}
           >

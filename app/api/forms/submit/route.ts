@@ -7,6 +7,7 @@ import {
 } from '@/lib/integrations/form-transport-contract'
 import { getFormTransportConfig } from '@/lib/integrations/form-transport-config'
 import { sendEstimateSubmission } from '@/lib/integrations/form-transport-provider'
+import { isFormBotSubmission } from '@/lib/forms/bot-guard'
 import { getEstimateFormValidationIssues, validateEstimateFormPayload } from '@/lib/integrations/form-transport-validation'
 
 const FALLBACK_CORRELATION_PREFIX = 'cfp'
@@ -98,6 +99,20 @@ export async function POST(request: NextRequest): Promise<NextResponse<FormSubmi
   }
 
   const correlationId = extractCorrelationId(payload)
+
+  if (payload && typeof payload === 'object') {
+    const candidate = payload as {
+      website?: string
+      form_started_at?: string
+      submitted_at?: string
+    }
+
+    if (isFormBotSubmission(candidate)) {
+      console.warn('[form-submit] bot guard rejected submission', { correlationId })
+      return NextResponse.json(failureEnvelope(correlationId, 'VALIDATION_ERROR', false, 0), { status: 400 })
+    }
+  }
+
   const validation = getEstimateFormValidationIssues(payload)
   if (!validation.valid || !validateEstimateFormPayload(payload)) {
     console.warn('[form-submit] validation failed', {

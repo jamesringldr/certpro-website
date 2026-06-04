@@ -39,12 +39,12 @@ export default function SiteHeader() {
       <div className={styles.utilityBar}>
         <div className={styles.utilityInner}>
           <div className={styles.utilityMessaging}>
-            <span>Fast Rapid Response</span>
+            <span className={styles.utilityHeadline}>Fast Rapid Response</span>
             <span className={styles.utilitySubline}>Your call is answered by real people.</span>
           </div>
           <a
-            href="tel:+18165550192"
-            className={styles.callLink}
+            href="tel:+18164540247"
+            className={styles.callButton}
             onClick={() => {
               trackGa4Event('call_click', {
                 entrypoint: 'header_cta',
@@ -52,7 +52,7 @@ export default function SiteHeader() {
               })
             }}
           >
-            Call (816) 555-0192
+            Call (816) 454-0247
           </a>
         </div>
       </div>

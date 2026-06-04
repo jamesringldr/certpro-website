@@ -1,3 +1,5 @@
+import BookServiceButton from '@/components/booking/BookServiceButton'
+
 export default function AboutPage() {
   return (
     <section className="py-14 md:py-16 lg:py-20">
@@ -9,17 +11,12 @@ export default function AboutPage() {
         </p>
         <div className="mt-6 flex flex-col gap-3 sm:flex-row">
           <a
-            href="tel:+18165550192"
+            href="tel:+18164540247"
             className="inline-flex min-h-11 items-center justify-center rounded-md bg-brand-primary px-5 py-2 text-sm font-semibold text-white"
           >
             Call Emergency Line
           </a>
-          <a
-            href="/contact"
-            className="inline-flex min-h-11 items-center justify-center rounded-md border border-brand-secondary px-5 py-2 text-sm font-semibold text-brand-secondary"
-          >
-            Book Service
-          </a>
+          <BookServiceButton entrypoint="contact_page">Book Service</BookServiceButton>
         </div>
         <div className="mt-4 flex flex-wrap gap-2 text-xs font-semibold uppercase tracking-[0.14em] text-slate-300">
           <a href="/services/emergency-plumbing" className="rounded-full border border-brand-border px-3 py-1.5 hover:text-white">
@@ -28,9 +25,12 @@ export default function AboutPage() {
           <a href="/services" className="rounded-full border border-brand-border px-3 py-1.5 hover:text-white">
             Explore Services
           </a>
-          <a href="/contact" className="rounded-full border border-brand-border px-3 py-1.5 hover:text-white">
+          <BookServiceButton
+            entrypoint="contact_page"
+            className="rounded-full border border-brand-border px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.14em] text-slate-300 hover:text-white"
+          >
             Get Fast Dispatch
-          </a>
+          </BookServiceButton>
         </div>
       </div>
     </section>

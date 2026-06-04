@@ -37,6 +37,9 @@ export function getEstimateFormValidationIssues(payload: unknown): ValidationRes
   if (!isNonEmptyString(candidate.phone)) {
     issues.push('phone is required')
   }
+  if (candidate.form_type === 'contact' && candidate.preferred_contact_method !== 'text' && candidate.preferred_contact_method !== 'call') {
+    issues.push('preferred_contact_method is required for contact forms')
+  }
   if (candidate.email !== undefined && typeof candidate.email !== 'string') {
     issues.push('email must be a string when provided')
   }
@@ -45,6 +48,22 @@ export function getEstimateFormValidationIssues(payload: unknown): ValidationRes
   }
   if (candidate.message !== undefined && typeof candidate.message !== 'string') {
     issues.push('message must be a string when provided')
+  }
+  if (
+    candidate.preferred_contact_method !== undefined &&
+    candidate.preferred_contact_method !== 'text' &&
+    candidate.preferred_contact_method !== 'call'
+  ) {
+    issues.push('preferred_contact_method must be text or call when provided')
+  }
+  if (candidate.address !== undefined && typeof candidate.address !== 'string') {
+    issues.push('address must be a string when provided')
+  }
+  if (candidate.website !== undefined && typeof candidate.website !== 'string') {
+    issues.push('website must be a string when provided')
+  }
+  if (candidate.form_started_at !== undefined && !isNonEmptyString(candidate.form_started_at)) {
+    issues.push('form_started_at must be a non-empty string when provided')
   }
   if (typeof candidate.consent !== 'boolean') {
     issues.push('consent must be boolean')

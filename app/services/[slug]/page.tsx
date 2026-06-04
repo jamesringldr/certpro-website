@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import BookServiceButton from '@/components/booking/BookServiceButton'
 import { notFound } from 'next/navigation'
 import type { Metadata } from 'next'
 import { SERVICES, getServiceBySlug } from '@/data/services'
@@ -41,17 +42,12 @@ export default async function ServiceTemplatePage({ params }: ServicePageProps) 
         <p className="mt-4 max-w-3xl text-base leading-7 text-slate-300">{service.shortDescription}</p>
         <div className="mt-6 flex flex-col gap-3 sm:flex-row">
           <a
-            href="tel:+18165550192"
+            href="tel:+18164540247"
             className="inline-flex min-h-11 items-center rounded-md bg-brand-primary px-5 py-2 text-sm font-semibold text-white"
           >
             Call Now
           </a>
-          <Link
-            href="/contact"
-            className="inline-flex min-h-11 items-center rounded-md border border-brand-secondary px-5 py-2 text-sm font-semibold text-brand-secondary"
-          >
-            Book Service
-          </Link>
+          <BookServiceButton entrypoint="service_cta">Book Service</BookServiceButton>
         </div>
 
         <section className="mt-8 grid gap-4 md:grid-cols-2">
@@ -70,17 +66,12 @@ export default async function ServiceTemplatePage({ params }: ServicePageProps) 
           <p className="mt-2 text-sm leading-6 text-slate-300">{service.responseTime}</p>
           <div className="mt-4 flex flex-wrap gap-3">
             <a
-              href="tel:+18165550192"
+              href="tel:+18164540247"
               className="inline-flex min-h-11 items-center rounded-md bg-brand-primary px-5 py-2 text-sm font-semibold text-white"
             >
               Call Now
             </a>
-            <Link
-              href="/contact"
-              className="inline-flex min-h-11 items-center rounded-md border border-brand-secondary px-5 py-2 text-sm font-semibold text-brand-secondary"
-            >
-              Book Service
-            </Link>
+            <BookServiceButton entrypoint="service_cta">Book Service</BookServiceButton>
           </div>
         </section>
 
@@ -104,9 +95,12 @@ export default async function ServiceTemplatePage({ params }: ServicePageProps) 
             <Link href="/services" className="rounded-full border border-brand-border px-3 py-1.5 text-sm text-slate-200 hover:text-white">
               All Services
             </Link>
-            <Link href="/contact" className="rounded-full border border-brand-border px-3 py-1.5 text-sm text-slate-200 hover:text-white">
+            <BookServiceButton
+              entrypoint="service_cta"
+              className="rounded-full border border-brand-border px-3 py-1.5 text-sm font-normal text-slate-200 hover:text-white"
+            >
               Request Dispatch
-            </Link>
+            </BookServiceButton>
           </div>
         </section>
       </div>
