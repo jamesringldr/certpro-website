@@ -1,0 +1,6 @@
+# Local brand assets — not needed for the Next.js build/deploy
+Branding Material
+*.zip
+.DS_Store
+.tsbuildinfo
+tsconfig.tsbuildinfo
