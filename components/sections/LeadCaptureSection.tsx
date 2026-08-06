@@ -5,6 +5,7 @@ import AddressLookupField from '@/components/forms/AddressLookupField'
 import SectionShell from '@/components/sections/SectionShell'
 import type { PreferredContactMethod } from '@/lib/integrations/form-transport-contract'
 import { trackGa4Event } from '@/lib/analytics/ga4'
+import { trackGoogleAdsContactConversion } from '@/lib/analytics/google-ads'
 
 const SERVICE_OPTIONS = [
   'Emergency Plumbing',
@@ -101,6 +102,7 @@ export default function LeadCaptureSection() {
         correlation_id: correlationId,
         destination: 'internal',
       })
+      trackGoogleAdsContactConversion()
       setSubmitState('success')
       setSubmitMessage('Request received. Our team will follow up shortly.')
       formElement.reset()
