@@ -13,7 +13,7 @@ export default function LayoutShell({ children }: LayoutShellProps) {
     <BookingProvider>
       <div className="flex min-h-screen flex-col">
         <SiteHeader />
-        <main id="main-content" className="flex-1 pb-[calc(5.5rem+env(safe-area-inset-bottom))] md:pb-0">
+        <main id="main-content" className="flex-1 pb-[calc(7.25rem+env(safe-area-inset-bottom))] md:pb-0">
           {children}
         </main>
         <SiteFooter />

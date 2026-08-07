@@ -1,7 +1,7 @@
 import SectionShell from '@/components/sections/SectionShell'
 import styles from '@/components/sections/ServiceGridSection.module.css'
 import type { LucideIcon } from 'lucide-react'
-import { AlertTriangle, Building2, Cog, Droplets, Flame, Waves, Wrench } from 'lucide-react'
+import { AlertTriangle, Building2, Cog, Droplets, Flame, Waves } from 'lucide-react'
 
 const FEATURED_SERVICE_SPECS = [
   {

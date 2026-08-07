@@ -13,6 +13,7 @@
   max-width: var(--container-max);
   align-items: center;
   justify-content: space-between;
+  gap: 1rem;
   padding: 0.75rem 1rem;
 }
 
@@ -28,10 +29,10 @@
   display: block;
 }
 
-.nav {
-  display: flex;
+.navDesktop {
+  display: none;
   align-items: center;
-  gap: 0.5rem;
+  gap: 1rem;
   font-size: 0.875rem;
   font-weight: 600;
 }
@@ -47,7 +48,51 @@
   color: var(--brand-heading);
 }
 
+.menuButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  flex-shrink: 0;
+  border: 1px solid var(--brand-border);
+  border-radius: 0.5rem;
+  background: var(--brand-surface);
+  color: var(--brand-heading);
+  cursor: pointer;
+}
+
+.menuButton:hover {
+  border-color: var(--brand-secondary);
+  color: var(--brand-secondary);
+}
+
+.mobileMenu {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding: 0.5rem 1rem 1rem;
+  border-top: 1px solid var(--brand-border);
+  background: rgba(10, 10, 10, 0.98);
+}
+
+.mobileNavLink {
+  display: block;
+  padding: 0.875rem 0.75rem;
+  border-radius: 0.5rem;
+  color: var(--brand-heading);
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.mobileNavLink:hover {
+  background: var(--brand-surface);
+  color: var(--brand-secondary);
+}
+
 .utilityBar {
+  display: none;
   border-top: 1px solid var(--brand-border);
   background: var(--brand-surface);
 }
@@ -113,36 +158,24 @@
   filter: brightness(0.95);
 }
 
-@media (max-width: 639px) {
-  .utilityInner {
-    flex-direction: column;
-    align-items: stretch;
+@media (min-width: 768px) {
+  .menuButton,
+  .mobileMenu {
+    display: none;
   }
 
-  .utilityHeadline {
-    font-size: 1.25rem;
+  .navDesktop {
+    display: flex;
   }
 
-  .utilitySubline {
-    font-size: 0.9375rem;
+  .utilityBar {
+    display: block;
   }
 
-  .callButton {
-    width: 100%;
-    font-size: 1.25rem;
-    padding: 0.875rem 1rem;
-  }
-}
-
-@media (min-width: 640px) {
   .container,
   .utilityInner {
     padding-left: 1.5rem;
     padding-right: 1.5rem;
-  }
-
-  .nav {
-    gap: 1rem;
   }
 
   .brandLogo {
@@ -165,5 +198,13 @@
   .callButton {
     font-size: 1.625rem;
     padding: 0.875rem 1.75rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container,
+  .utilityInner {
+    padding-left: 2rem;
+    padding-right: 2rem;
   }
 }

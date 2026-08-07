@@ -21,15 +21,25 @@ export default function Home() {
         <div className="absolute inset-0 bg-gradient-to-r from-brand-bg/84 via-brand-bg/69 to-brand-bg/80" />
         <div className="absolute inset-x-0 bottom-0 h-36 bg-gradient-to-b from-transparent via-brand-bg/70 to-brand-bg md:h-44" />
         <div className="relative z-10 mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-8">
-          <h1 className="max-w-3xl text-3xl font-bold leading-tight text-white md:text-5xl">
-            Kansas City&apos;s Rapid Response Plumbing for 30+ years
-          </h1>
-          <div className="mt-4 max-w-2xl space-y-2 text-base leading-7 md:text-lg">
-            <p className="font-bold text-white">Family-owned, Licensed &amp; Insured.</p>
-            <p className="font-bold italic text-white">
-              One tap to call. One form to book. One path to service.
-            </p>
+          <div className="flex flex-wrap gap-2">
+            <span className="inline-flex items-center rounded-full border border-brand-secondary/70 bg-brand-primary/25 px-3.5 py-1.5 text-xs font-semibold tracking-wide text-brand-secondary md:text-sm">
+              Family Owned
+            </span>
+            <span className="inline-flex items-center rounded-full border border-brand-secondary/70 bg-brand-primary/25 px-3.5 py-1.5 text-xs font-semibold tracking-wide text-brand-secondary md:text-sm">
+              30+ Years Experience
+            </span>
           </div>
+
+          <h1 className="mt-5 max-w-3xl text-3xl font-bold leading-tight text-white md:mt-6 md:text-5xl">
+            Kansas City&apos;s{' '}
+            <span className="text-brand-secondary">Rapid Response</span> Plumbing
+          </h1>
+
+          <p className="mt-4 text-base font-semibold tracking-wide text-white md:text-lg">
+            Bonded <span className="text-brand-secondary">-</span> Licensed{' '}
+            <span className="text-brand-secondary">-</span> Insured
+          </p>
+
           <div className="mt-6 flex flex-wrap gap-3">
             <a
               href="tel:+18164540247"
