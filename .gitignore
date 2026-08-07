@@ -14,3 +14,7 @@ pnpm-debug.log*
 tsconfig.tsbuildinfo
 .vercel
 .env*
+
+# Local branding dumps (too large for GitHub)
+Branding Material/GBP Photos.zip
+Branding Material/GBP Photos/
