@@ -3,36 +3,25 @@
 import Script from 'next/script'
 import { useEffect, useId, useRef } from 'react'
 import { HOUSECALL_PRO_LEAD_IFRAME_SRC, HOUSECALL_PRO_SCRIPT_SRC } from '@/lib/integrations/housecall-pro'
-import { trackGa4Event, type Ga4EventParams } from '@/lib/analytics/ga4'
 import styles from '@/components/booking/HousecallProLeadModal.module.css'
 
 type HousecallProLeadModalProps = {
   isOpen: boolean
   onClose: () => void
-  entrypoint: NonNullable<Ga4EventParams['entrypoint']>
 }
 
-export default function HousecallProLeadModal({ isOpen, onClose, entrypoint }: HousecallProLeadModalProps) {
+export default function HousecallProLeadModal({ isOpen, onClose }: HousecallProLeadModalProps) {
   const titleId = useId()
   const closeButtonRef = useRef<HTMLButtonElement>(null)
-  const hasTrackedOpenRef = useRef(false)
 
   useEffect(() => {
     if (!isOpen) {
-      hasTrackedOpenRef.current = false
       return
     }
 
     const previousOverflow = document.body.style.overflow
     document.body.style.overflow = 'hidden'
     closeButtonRef.current?.focus()
-
-    if (!hasTrackedOpenRef.current) {
-      hasTrackedOpenRef.current = true
-      const pagePath = window.location.pathname
-      trackGa4Event('book_start', { entrypoint, page_path: pagePath })
-      trackGa4Event('form_view', { entrypoint, page_path: pagePath })
-    }
 
     function handleKeyDown(event: KeyboardEvent): void {
       if (event.key === 'Escape') {
@@ -45,7 +34,7 @@ export default function HousecallProLeadModal({ isOpen, onClose, entrypoint }: H
       document.body.style.overflow = previousOverflow
       window.removeEventListener('keydown', handleKeyDown)
     }
-  }, [entrypoint, isOpen, onClose])
+  }, [isOpen, onClose])
 
   if (!isOpen) {
     return null

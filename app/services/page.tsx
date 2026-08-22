@@ -1,14 +1,24 @@
+import type { Metadata } from 'next'
 import Link from 'next/link'
 import BookServiceButton from '@/components/booking/BookServiceButton'
+import JsonLd from '@/components/seo/JsonLd'
 import { SERVICES } from '@/data/services'
+import { buildPageMetadata, CORE_PAGE_SEO } from '@/lib/seo/metadata'
+import { webPageJsonLd } from '@/lib/seo/schema'
+
+const pageSeo = CORE_PAGE_SEO.services
+
+export const metadata: Metadata = buildPageMetadata(pageSeo)
 
 export default function ServicesPage() {
   return (
     <section className="py-14 md:py-16 lg:py-20">
       <div className="mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-8">
+        <JsonLd data={webPageJsonLd(pageSeo.title, pageSeo.path, pageSeo.description)} />
         <h1 className="text-3xl font-bold text-white md:text-4xl">All Plumbing Services</h1>
         <p className="mt-3 max-w-2xl text-base leading-7 text-slate-300">
-          SEO-friendly service pages with reusable conversion sections and consistent mobile-first structure.
+          Licensed plumbing for homes and businesses across North Kansas City—emergency dispatch, drains, sewers, water
+          heaters, and more. Pick a service to see how we diagnose and fix it.
         </p>
         <div className="mt-6 flex flex-col gap-3 sm:flex-row">
           <a

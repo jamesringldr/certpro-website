@@ -1,13 +1,26 @@
+import type { Metadata } from 'next'
 import BookServiceButton from '@/components/booking/BookServiceButton'
+import JsonLd from '@/components/seo/JsonLd'
+import { AFTER_HOURS_POLICY, HOURS_DISPLAY, LEGAL_NAME, PHONE_DISPLAY } from '@/lib/seo/constants'
+import { buildPageMetadata, CORE_PAGE_SEO } from '@/lib/seo/metadata'
+import { webPageJsonLd } from '@/lib/seo/schema'
+
+const pageSeo = CORE_PAGE_SEO.contact
+
+export const metadata: Metadata = buildPageMetadata(pageSeo)
 
 export default function ContactPage() {
   return (
     <section className="py-14 md:py-16 lg:py-20">
+      <JsonLd data={webPageJsonLd(pageSeo.title, pageSeo.path, pageSeo.description)} />
       <div className="mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-8">
         <h1 className="text-3xl font-bold text-white md:text-4xl">Contact CertPro Plumbing</h1>
         <p className="mt-4 max-w-3xl text-base leading-7 text-slate-300">
-          For immediate issues call our emergency line at (816) 454-0247—we offer fast rapid response and your call is
+          For immediate issues call {LEGAL_NAME} at {PHONE_DISPLAY}—we offer fast rapid response and your call is
           answered by real people—or open the booking form to schedule service online.
+        </p>
+        <p className="mt-3 max-w-3xl text-sm leading-6 text-slate-400">
+          {HOURS_DISPLAY}. {AFTER_HOURS_POLICY}
         </p>
         <div className="mt-6 grid gap-3 sm:max-w-xl sm:grid-cols-2">
           <a

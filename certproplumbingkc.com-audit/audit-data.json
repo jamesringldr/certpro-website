@@ -1,0 +1,302 @@
+{
+  "summary": {
+    "health_score": 34,
+    "business_type": "Local home-service SAB (plumber, Kansas City / Liberty metro)",
+    "audited_url": "https://www.certproplumbingkc.com/",
+    "audit_date": "2026-08-22",
+    "pages_crawled": 16,
+    "top_findings": [
+      "Duplicate live hosts certproplumbing.com and certproplumbingkc.com with no canonical",
+      "robots.txt and sitemap.xml return HTML 404",
+      "Zero JSON-LD (missing Plumber / Service / BreadcrumbList)",
+      "Twelve thin service templates (166–187 words including chrome)",
+      "NAP split: Chamber cites http://www.certproplumbing.com; site has no hours; GBP unconfirmed"
+    ],
+    "quick_wins": [
+      "301 non-canonical host; add absolute canonicals",
+      "Add app/robots.ts and app/sitemap.ts",
+      "Unique title and description on /, /about, /contact, /services",
+      "Link homepage service cards to /services/[slug]",
+      "Inject Plumber JSON-LD with telephone and areaServed"
+    ],
+    "limitations": [
+      "claude-seo runtime not installed",
+      "PageSpeed Insights HTTP 429",
+      "No GSC/GA4 API; PostHog 30d visitors = 0",
+      "No DataForSEO; no screenshots"
+    ]
+  },
+  "categories": [
+    {
+      "name": "Technical SEO",
+      "score": 42,
+      "weight": 22,
+      "what_works": [
+        "HTTPS and HSTS",
+        "Apex to www on the KC host",
+        "SSR/prerendered HTML",
+        "Clean service URL taxonomy"
+      ],
+      "findings": [
+        {
+          "title": "Two production hosts, no canonical",
+          "severity": "Critical",
+          "description": "www.certproplumbing.com and www.certproplumbingkc.com both return HTTP 200 with identical homepage byte size (92,889). No rel=canonical on any page.",
+          "recommendation": "Pick https://www.certproplumbingkc.com, 301 the other host, emit absolute self-canonicals."
+        },
+        {
+          "title": "robots.txt is an HTML 404",
+          "severity": "High",
+          "description": "/robots.txt returns 404 HTML on both hosts, so there is no crawler policy and no sitemap pointer.",
+          "recommendation": "Add Next.js app/robots.ts allowing / and disallowing /api/."
+        },
+        {
+          "title": "No XML sitemap",
+          "severity": "High",
+          "description": "/sitemap.xml and /sitemap_index.xml 404. Public site: search returned no indexed URLs.",
+          "recommendation": "Add app/sitemap.ts with 16 indexable URLs; submit in Search Console."
+        },
+        {
+          "title": "Incomplete security headers",
+          "severity": "Medium",
+          "description": "HSTS present. Missing CSP, X-Content-Type-Options, Referrer-Policy, frame-ancestors, Permissions-Policy.",
+          "recommendation": "Set headers in Vercel/next.config after host lock."
+        },
+        {
+          "title": "Favicon 404",
+          "severity": "Low",
+          "description": "/favicon.ico and /apple-touch-icon.png 404. public/icon.png exists in the repo but is not served at the favicon path.",
+          "recommendation": "Add app/icon.png or rewrite /favicon.ico to the existing icon."
+        }
+      ]
+    },
+    {
+      "name": "Content Quality",
+      "score": 31,
+      "weight": 23,
+      "what_works": [
+        "Homepage has local county coverage and call/book CTAs",
+        "Family-owned and licensed claims are consistent in voice"
+      ],
+      "findings": [
+        {
+          "title": "Thin duplicate service pages",
+          "severity": "High",
+          "description": "All 12 /services/* pages are 166–187 words including nav/footer (~80–110 unique), sharing the same H2 skeleton and generic FAQs. Coverage floor for service pages is ~800 words.",
+          "recommendation": "Rewrite Emergency, Sewer, and Water heater first with unique local coverage; then the rest."
+        },
+        {
+          "title": "E-E-A-T: Who/How/Why fail",
+          "severity": "High",
+          "description": "No named plumber or license number on-site. LLC launched May 2026; copy claims thousands of jobs and 30+ years without attributing Derek Drager’s career.",
+          "recommendation": "Put named bios on /about; attribute prior experience honestly."
+        },
+        {
+          "title": "Decoy insights module",
+          "severity": "High",
+          "description": "Three dated article cards; Read More is a button with no href. View All Articles points at /services. Dates are January 2026, before brand launch.",
+          "recommendation": "Ship real posts or remove the module."
+        },
+        {
+          "title": "Internal copy in production",
+          "severity": "Medium",
+          "description": "/services intro says SEO-friendly service pages with reusable conversion sections. Service pages show a Service Template eyebrow.",
+          "recommendation": "Replace with customer-facing copy."
+        },
+        {
+          "title": "Missing legal pages",
+          "severity": "Medium",
+          "description": "Privacy and Terms 404; footer links are href=#.",
+          "recommendation": "Publish Privacy Policy and Terms; wire footer."
+        }
+      ]
+    },
+    {
+      "name": "On-Page SEO",
+      "score": 36,
+      "weight": 20,
+      "what_works": [
+        "One H1 per page",
+        "Unique titles on the 12 service leaves"
+      ],
+      "findings": [
+        {
+          "title": "Duplicate titles on four core URLs",
+          "severity": "High",
+          "description": "/, /about, /contact, /services all use CertPro Plumbing | Fast Rapid Response North KC Plumbing (56 chars).",
+          "recommendation": "Per-route generateMetadata."
+        },
+        {
+          "title": "Developer meta description sitewide",
+          "severity": "High",
+          "description": "Mobile-first plumbing website for emergency response… is product copy, 122 chars, reused on core routes. Service descriptions are 54–76 chars and omit geo.",
+          "recommendation": "140–160 char intent + geo + CTA snippets."
+        },
+        {
+          "title": "Homepage service cards are not links",
+          "severity": "High",
+          "description": "ServiceGridSection renders six duplicated carousel cards with no Link/href, so the primary services module does not pass PageRank or users to leaf URLs.",
+          "recommendation": "Wrap each card in Link to /services/[slug]."
+        },
+        {
+          "title": "No Open Graph or Twitter tags",
+          "severity": "Medium",
+          "description": "Zero og:* / twitter:* on crawled pages.",
+          "recommendation": "Add OG image 1200x630 and per-URL og:url."
+        }
+      ]
+    },
+    {
+      "name": "Schema / Structured Data",
+      "score": 5,
+      "weight": 10,
+      "what_works": [],
+      "findings": [
+        {
+          "title": "No JSON-LD on any page",
+          "severity": "High",
+          "description": "0 ld+json scripts. Missing Plumber/LocalBusiness, Service, BreadcrumbList, WebSite, Person.",
+          "recommendation": "Server-render a stable @id graph; skip FAQPage for Google SERP (retired 2026-05-07)."
+        }
+      ]
+    },
+    {
+      "name": "Performance (CWV)",
+      "score": 48,
+      "weight": 10,
+      "what_works": [
+        "HTML TTFB typically 140–500ms on Vercel",
+        "Mobile hero still is 204 KB"
+      ],
+      "findings": [
+        {
+          "title": "9.2 MB autoplay hero video",
+          "severity": "High",
+          "description": "/videos/hero.mp4 is 9,634,384 bytes, autoplay loop on desktop — probable LCP.",
+          "recommendation": "Compress under ~1.5 MB or use a still; lazy-load video."
+        },
+        {
+          "title": "Oversized photographic PNGs",
+          "severity": "Medium",
+          "description": "why-choose-vehicle.png is 680 KB; article PNGs 238–384 KB.",
+          "recommendation": "Convert photos to WebP/AVIF."
+        },
+        {
+          "title": "No field CWV this run",
+          "severity": "Info",
+          "description": "PageSpeed Insights API returned 429. PostHog 30-day visitors = 0.",
+          "recommendation": "Re-run PSI after media fixes; verify analytics capture."
+        }
+      ]
+    },
+    {
+      "name": "AI Search Readiness",
+      "score": 28,
+      "weight": 10,
+      "what_works": [
+        "AI crawlers are not blocked",
+        "LinkedIn owner/company mentions exist"
+      ],
+      "findings": [
+        {
+          "title": "Split entity URLs",
+          "severity": "High",
+          "description": "Chamber and email use certproplumbing.com; marketing site is certproplumbingkc.com. AI systems have no single URL to cite.",
+          "recommendation": "One host + sameAs + citation updates."
+        },
+        {
+          "title": "Low citability of service copy",
+          "severity": "Medium",
+          "description": "No self-contained 134–167 word answer blocks; no license number or named expert on-page.",
+          "recommendation": "Front-load a factual entity blurb on Home and About."
+        }
+      ]
+    },
+    {
+      "name": "Images",
+      "score": 38,
+      "weight": 5,
+      "what_works": [
+        "Vehicle and article images have descriptive alts",
+        "Next/Image is used for several photos"
+      ],
+      "findings": [
+        {
+          "title": "Missing favicon and photo-as-PNG weight",
+          "severity": "Medium",
+          "description": "Favicon 404. Photos shipped as uncompressed PNG. Footer social alts empty with href=#.",
+          "recommendation": "Add favicon; convert photos; point social to real profiles or remove."
+        }
+      ]
+    },
+    {
+      "name": "Local SEO",
+      "score": 33,
+      "weight": 0,
+      "what_works": [
+        "Phone (816) 454-0247 is consistent on-site and on the Chamber listing",
+        "Ten-county service area is listed on the homepage"
+      ],
+      "findings": [
+        {
+          "title": "Citation and GBP gaps",
+          "severity": "High",
+          "description": "Chamber website is HTTP certproplumbing.com. Site has no hours or street/SAB statement. GBP listing not confirmed in public search.",
+          "recommendation": "Claim GBP as SAB; publish hours and after-hours policy; align citations."
+        }
+      ]
+    }
+  ],
+  "action_plan": {
+    "phases": [
+      {
+        "name": "Phase 1: Critical Fixes",
+        "timeframe": "Week 1",
+        "items": [
+          "301 duplicate host; absolute canonicals",
+          "robots.txt + sitemap.xml",
+          "Unique titles/descriptions on core routes",
+          "Plumber JSON-LD",
+          "NAP/hours alignment including Chamber URL"
+        ]
+      },
+      {
+        "name": "Phase 2: High-Impact Improvements",
+        "timeframe": "Weeks 2-3",
+        "items": [
+          "Link homepage service cards",
+          "Remove Service Template / decoy articles / # footer links",
+          "About page with named master plumber",
+          "Deepen Emergency, Sewer, Water heater pages",
+          "Compress hero video and vehicle PNG; add favicon"
+        ]
+      },
+      {
+        "name": "Phase 3: Content & Authority",
+        "timeframe": "Month 2",
+        "items": [
+          "Claim and complete GBP as SAB; start review generation",
+          "Remaining service pages; optional unique Liberty page",
+          "Privacy Policy and Terms",
+          "Open Graph",
+          "Citation cleanup"
+        ]
+      },
+      {
+        "name": "Phase 4: Monitoring & Iteration",
+        "timeframe": "Ongoing",
+        "items": [
+          "GSC indexed count and canonical conflicts",
+          "GBP discovery views and calls",
+          "call_click / booking entrypoint events",
+          "Re-audit after host + schema + three money pages"
+        ]
+      }
+    ]
+  },
+  "artifacts": {
+    "findings_dir": "findings/",
+    "screenshots_dir": "screenshots/",
+    "crawl_file": "crawl-raw.json"
+  }
+}

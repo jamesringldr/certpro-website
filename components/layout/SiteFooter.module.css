@@ -5,7 +5,7 @@
   min-height: 30rem;
   background:
     linear-gradient(to bottom, rgba(10, 10, 10, 0.18), rgba(10, 10, 10, 0.72) 38%, rgba(10, 10, 10, 0.95)),
-    url('/images/footer/footer-bg.png');
+    url('/images/footer/footer-bg.jpg');
   background-color: var(--brand-bg);
   background-position: center;
   background-size: cover;
@@ -54,42 +54,6 @@
   font-size: 0.875rem;
   line-height: 1.6;
   color: var(--brand-body);
-}
-
-.newsletterWrap {
-  margin-top: 1rem;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  border: 1px solid var(--brand-border);
-  border-radius: 999px;
-  background: #fff;
-  padding: 0.35rem 0.4rem 0.35rem 0.85rem;
-  max-width: 19rem;
-}
-
-.newsletterInput {
-  width: 100%;
-  border: none;
-  outline: none;
-  background: transparent;
-  color: #111;
-  font-size: 0.875rem;
-}
-
-.newsletterInput::placeholder {
-  color: #6d6d6d;
-}
-
-.newsletterButton {
-  border: none;
-  border-radius: 999px;
-  background: var(--brand-bg);
-  color: #fff;
-  width: 1.9rem;
-  height: 1.9rem;
-  font-size: 0.9rem;
-  cursor: pointer;
 }
 
 .socialRow {

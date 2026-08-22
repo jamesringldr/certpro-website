@@ -21,23 +21,14 @@ export default function SiteFooter() {
             <p className={styles.copy}>
               Family-owned plumbing support for Kansas City metro homes and businesses with reliable response.
             </p>
-            <div className={styles.newsletterWrap}>
-              <input className={styles.newsletterInput} type="email" placeholder="Enter your email address" />
-              <button className={styles.newsletterButton} type="button" aria-label="Submit email">
-                ↗
-              </button>
-            </div>
             <div className={styles.socialRow}>
-              <a href="#" className={styles.socialLink} aria-label="Facebook">
-                <Image src="/brand/icon-white.png" alt="" width={14} height={14} className={styles.socialIcon} />
-              </a>
-              <a href="#" className={styles.socialLink} aria-label="Instagram">
-                <Image src="/brand/icon-white.png" alt="" width={14} height={14} className={styles.socialIcon} />
-              </a>
-              <a href="#" className={styles.socialLink} aria-label="LinkedIn">
-                <Image src="/brand/icon-white.png" alt="" width={14} height={14} className={styles.socialIcon} />
-              </a>
-              <a href="#" className={styles.socialLink} aria-label="YouTube">
+              <a
+                href="https://www.linkedin.com/company/certpro-plumbing-llc"
+                className={styles.socialLink}
+                aria-label="CertPro Plumbing on LinkedIn"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
                 <Image src="/brand/icon-white.png" alt="" width={14} height={14} className={styles.socialIcon} />
               </a>
             </div>
@@ -53,7 +44,7 @@ export default function SiteFooter() {
                 Our Services
               </Link>
               <Link href="/contact" className={styles.link}>
-                Testimonials
+                Contact
               </Link>
             </div>
           </div>
@@ -78,25 +69,30 @@ export default function SiteFooter() {
 
           <div className={styles.column}>
             <h3 className={styles.columnTitle}>Contact Us</h3>
-            <span className={styles.contactText}>Kansas City Metro</span>
+            <span className={styles.contactText}>CertPro Plumbing LLC</span>
+            <span className={styles.contactText}>Kansas City metro — we come to you</span>
+            <span className={styles.contactText}>Monday–Friday 7:00 AM–6:00 PM</span>
             <a href="tel:+18164540247" className={styles.contactText}>
               (816) 454-0247
             </a>
             <a href="mailto:info@certproplumbing.com" className={styles.contactText}>
               info@certproplumbing.com
             </a>
+            <span className={styles.contactText}>
+              After-hours emergencies: call for dispatch. Availability depends on the technician on call.
+            </span>
           </div>
         </div>
         <hr className={styles.divider} />
         <div className={styles.bottomRow}>
           <span>©Copyright 2026, All Rights Reserved</span>
           <div className={styles.legalLinks}>
-            <a href="#" className={styles.legalLink}>
-              Term of Service
-            </a>
-            <a href="#" className={styles.legalLink}>
+            <Link href="/terms" className={styles.legalLink}>
+              Terms of Service
+            </Link>
+            <Link href="/privacy" className={styles.legalLink}>
               Privacy Policy
-            </a>
+            </Link>
           </div>
         </div>
       </div>

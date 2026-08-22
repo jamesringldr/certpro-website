@@ -4,7 +4,7 @@ import ServiceAreaSection from '@/components/sections/ServiceAreaSection'
 import ServiceGridSection from '@/components/sections/ServiceGridSection'
 import SocialProofTrustSection from '@/components/sections/SocialProofTrustSection'
 import WhyChooseCertProSection from '@/components/sections/WhyChooseCertProSection'
-import ArticlesSection from '@/components/sections/ArticlesSection'
+import ServiceGuidesSection from '@/components/sections/ServiceGuidesSection'
 
 export default function Home() {
   return (
@@ -12,10 +12,19 @@ export default function Home() {
       <section className="relative overflow-hidden bg-brand-bg py-14 md:py-16 lg:py-20">
         <div
           className="absolute inset-0 bg-cover bg-center md:hidden"
-          style={{ backgroundImage: "url('/images/hero-mobile.png')" }}
+          style={{ backgroundImage: "url('/images/hero-mobile.jpg')" }}
           aria-hidden="true"
         />
-        <video className="absolute inset-0 hidden h-full w-full object-cover md:block" autoPlay muted loop playsInline aria-hidden="true">
+        <video
+          className="absolute inset-0 hidden h-full w-full object-cover md:block"
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="none"
+          poster="/images/hero-desktop.jpg"
+          aria-hidden="true"
+        >
           <source src="/videos/hero.mp4" type="video/mp4" />
         </video>
         <div className="absolute inset-0 bg-gradient-to-r from-brand-bg/84 via-brand-bg/69 to-brand-bg/80" />
@@ -60,7 +69,7 @@ export default function Home() {
       <WhyChooseCertProSection />
       <ServiceGridSection />
       <ServiceAreaSection />
-      <ArticlesSection />
+      <ServiceGuidesSection />
       <LeadCaptureSection />
     </>
   )

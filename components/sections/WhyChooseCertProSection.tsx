@@ -67,7 +67,7 @@ export default function WhyChooseCertProSection() {
 
         <article className="relative order-4 aspect-[658/497] w-full overflow-hidden rounded-3xl border border-brand-border lg:order-3 lg:col-start-1">
           <Image
-            src="/images/sections/why-choose-vehicle.png"
+            src="/images/sections/why-choose-vehicle.jpg"
             alt="CertPro Plumbing service vehicle"
             fill
             className="object-cover object-center"

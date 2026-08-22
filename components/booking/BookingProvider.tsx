@@ -2,7 +2,7 @@
 
 import { createContext, useCallback, useContext, useMemo, useState, type ReactNode } from 'react'
 import HousecallProLeadModal from '@/components/booking/HousecallProLeadModal'
-import type { Ga4EventParams } from '@/lib/analytics/ga4'
+import { trackGa4Event, type Ga4EventParams } from '@/lib/analytics/ga4'
 
 export type BookingEntrypoint = NonNullable<Ga4EventParams['entrypoint']>
 
@@ -29,10 +29,11 @@ type BookingProviderProps = {
 
 export default function BookingProvider({ children }: BookingProviderProps) {
   const [isOpen, setIsOpen] = useState(false)
-  const [entrypoint, setEntrypoint] = useState<BookingEntrypoint>('booking_page')
 
   const openBooking = useCallback((nextEntrypoint: BookingEntrypoint) => {
-    setEntrypoint(nextEntrypoint)
+    const pagePath = window.location.pathname
+    trackGa4Event('book_start', { entrypoint: nextEntrypoint, page_path: pagePath })
+    trackGa4Event('form_view', { entrypoint: nextEntrypoint, page_path: pagePath })
     setIsOpen(true)
   }, [])
 
@@ -52,7 +53,7 @@ export default function BookingProvider({ children }: BookingProviderProps) {
   return (
     <BookingContext.Provider value={value}>
       {children}
-      <HousecallProLeadModal isOpen={isOpen} onClose={closeBooking} entrypoint={entrypoint} />
+      <HousecallProLeadModal isOpen={isOpen} onClose={closeBooking} />
     </BookingContext.Provider>
   )
 }

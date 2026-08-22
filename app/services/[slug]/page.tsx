@@ -1,8 +1,13 @@
 import Link from 'next/link'
 import BookServiceButton from '@/components/booking/BookServiceButton'
+import JsonLd from '@/components/seo/JsonLd'
+import DeepServiceArticle from '@/components/services/DeepServiceArticle'
 import { notFound } from 'next/navigation'
 import type { Metadata } from 'next'
 import { SERVICES, getServiceBySlug } from '@/data/services'
+import { getDeepServicePage } from '@/data/service-pages'
+import { buildPageMetadata, SERVICE_DESCRIPTIONS, servicePageTitle } from '@/lib/seo/metadata'
+import { servicePageJsonLd } from '@/lib/seo/schema'
 
 type ServicePageProps = {
   params: Promise<{ slug: string }>
@@ -20,10 +25,11 @@ export async function generateMetadata({ params }: ServicePageProps): Promise<Me
     return {}
   }
 
-  return {
-    title: `${service.name} | CertPro Plumbing`,
-    description: service.shortDescription,
-  }
+  return buildPageMetadata({
+    title: servicePageTitle(service.name),
+    description: SERVICE_DESCRIPTIONS[service.slug] ?? service.shortDescription,
+    path: `/services/${service.slug}`,
+  })
 }
 
 export default async function ServiceTemplatePage({ params }: ServicePageProps) {
@@ -34,10 +40,22 @@ export default async function ServiceTemplatePage({ params }: ServicePageProps) 
     notFound()
   }
 
+  const deep = getDeepServicePage(slug)
+
+  if (deep) {
+    return (
+      <>
+        <JsonLd data={servicePageJsonLd(service)} />
+        <DeepServiceArticle content={deep} />
+      </>
+    )
+  }
+
   return (
     <article className="py-14 md:py-16 lg:py-20">
+      <JsonLd data={servicePageJsonLd(service)} />
       <div className="mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-8">
-        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-brand-secondary">Service Template</p>
+        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-brand-secondary">North Kansas City</p>
         <h1 className="mt-3 text-3xl font-bold text-white md:text-4xl">{service.name}</h1>
         <p className="mt-4 max-w-3xl text-base leading-7 text-slate-300">{service.shortDescription}</p>
         <div className="mt-6 flex flex-col gap-3 sm:flex-row">

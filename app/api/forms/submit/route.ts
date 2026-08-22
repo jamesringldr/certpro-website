@@ -9,6 +9,7 @@ import { getFormTransportConfig } from '@/lib/integrations/form-transport-config
 import { sendEstimateSubmission } from '@/lib/integrations/form-transport-provider'
 import { isFormBotSubmission } from '@/lib/forms/bot-guard'
 import { getEstimateFormValidationIssues, validateEstimateFormPayload } from '@/lib/integrations/form-transport-validation'
+import { createPostHogClient, getPostHogDistinctId, getPostHogSessionId } from '@/lib/analytics/posthog-server'
 
 const FALLBACK_CORRELATION_PREFIX = 'cfp'
 
@@ -125,6 +126,7 @@ export async function POST(request: NextRequest): Promise<NextResponse<FormSubmi
 
   const typedPayload = payload as EstimateFormSubmissionPayload
   const transportResult = await sendEstimateSubmission(getFormTransportConfig(), typedPayload)
+  const config = getFormTransportConfig()
 
   if (!transportResult.ok) {
     const code = transportResult.code ?? 'INTERNAL_ERROR'
@@ -136,14 +138,72 @@ export async function POST(request: NextRequest): Promise<NextResponse<FormSubmi
       code,
       retryable: transportResult.retryable,
       attemptCount: transportResult.attemptCount,
-      destination: getFormTransportConfig().destination,
-      provider: getFormTransportConfig().provider,
+      destination: config.destination,
+      provider: config.provider,
+    })
+
+    await captureFormSubmitEvent(request, {
+      event: 'server_form_submit_failure',
+      formType: typedPayload.form_type,
+      service: typedPayload.service,
+      sourcePagePath: typedPayload.source_page_path,
+      destination: config.destination,
+      provider: config.provider,
+      errorCode: code,
     })
 
     return NextResponse.json(envelope, { status: statusCode })
   }
 
+  await captureFormSubmitEvent(request, {
+    event: 'server_form_submit_success',
+    formType: typedPayload.form_type,
+    service: typedPayload.service,
+    sourcePagePath: typedPayload.source_page_path,
+    destination: config.destination,
+    provider: config.provider,
+  })
+
   const envelope = successEnvelope(correlationId, transportResult.attemptCount)
   return NextResponse.json(envelope, { status: 200 })
+}
+
+async function captureFormSubmitEvent(
+  request: NextRequest,
+  properties: {
+    event: 'server_form_submit_success' | 'server_form_submit_failure'
+    formType: EstimateFormSubmissionPayload['form_type']
+    service?: string
+    sourcePagePath: string
+    destination: ReturnType<typeof getFormTransportConfig>['destination']
+    provider: ReturnType<typeof getFormTransportConfig>['provider']
+    errorCode?: string
+  }
+): Promise<void> {
+  const posthog = createPostHogClient()
+  if (!posthog) {
+    return
+  }
+
+  const sessionId = getPostHogSessionId(request)
+
+  const distinctId = getPostHogDistinctId(request)
+
+  posthog.capture({
+    distinctId,
+    event: properties.event,
+    properties: {
+      form_type: properties.formType,
+      service: properties.service,
+      page_path: properties.sourcePagePath,
+      destination: properties.destination,
+      provider: properties.provider,
+      error_code: properties.errorCode,
+      $session_id: sessionId,
+      source: 'api',
+    },
+  })
+
+  await posthog.shutdown()
 }
 

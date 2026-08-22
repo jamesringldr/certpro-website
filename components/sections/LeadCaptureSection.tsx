@@ -5,6 +5,7 @@ import AddressLookupField from '@/components/forms/AddressLookupField'
 import SectionShell from '@/components/sections/SectionShell'
 import type { PreferredContactMethod } from '@/lib/integrations/form-transport-contract'
 import { trackGa4Event } from '@/lib/analytics/ga4'
+import { getPostHogRequestHeaders } from '@/lib/analytics/posthog-client'
 import { trackGoogleAdsContactConversion } from '@/lib/analytics/google-ads'
 
 const SERVICE_OPTIONS = [
@@ -77,6 +78,7 @@ export default function LeadCaptureSection() {
         method: 'POST',
         headers: {
           'content-type': 'application/json',
+          ...getPostHogRequestHeaders(),
         },
         body: JSON.stringify(payload),
       })

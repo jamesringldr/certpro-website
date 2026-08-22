@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import SectionShell from '@/components/sections/SectionShell'
 import styles from '@/components/sections/ServiceGridSection.module.css'
 import type { LucideIcon } from 'lucide-react'
@@ -61,8 +62,9 @@ export default function ServiceGridSection() {
       <div className={styles.carouselViewport}>
         <div className={styles.carouselTrack}>
           {CAROUSEL_SERVICES.map((service, index) => (
-            <article
+            <Link
               key={`${service.slug}-${index}`}
+              href={`/services/${service.slug}`}
               className={`${styles.carouselCard} rounded-xl border border-brand-border bg-brand-surface p-5 shadow-sm transition-colors hover:border-brand-secondary`}
             >
               <span className={styles.iconTile} aria-hidden>
@@ -70,7 +72,7 @@ export default function ServiceGridSection() {
               </span>
               <h3 className="mt-4 text-lg font-bold text-white">{service.name}</h3>
               <p className="mt-2 text-sm leading-6 text-slate-300">{service.description}</p>
-            </article>
+            </Link>
           ))}
         </div>
       </div>

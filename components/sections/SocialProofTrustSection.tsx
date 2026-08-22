@@ -3,17 +3,17 @@ import Image from 'next/image'
 
 const TRUST_CARDS = [
   {
-    imageSrc: '/images/trust/plumbing-trust-1.png',
+    imageSrc: '/images/trust/plumbing-trust-1.jpg',
     stat: '30+',
     label: 'Years experience',
   },
   {
-    imageSrc: '/images/trust/plumbing-trust-2.png',
+    imageSrc: '/images/trust/plumbing-trust-2.jpg',
     stat: 'Fast Rapid Response',
     label: 'Emergency dispatch',
   },
   {
-    imageSrc: '/images/trust/plumbing-trust-3.png',
+    imageSrc: '/images/trust/plumbing-trust-3.jpg',
     stat: '100%',
     label: 'Licensed and insured',
   },

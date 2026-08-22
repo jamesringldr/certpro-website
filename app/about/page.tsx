@@ -1,8 +1,17 @@
+import type { Metadata } from 'next'
 import BookServiceButton from '@/components/booking/BookServiceButton'
+import JsonLd from '@/components/seo/JsonLd'
+import { buildPageMetadata, CORE_PAGE_SEO } from '@/lib/seo/metadata'
+import { webPageJsonLd } from '@/lib/seo/schema'
+
+const pageSeo = CORE_PAGE_SEO.about
+
+export const metadata: Metadata = buildPageMetadata(pageSeo)
 
 export default function AboutPage() {
   return (
     <section className="py-14 md:py-16 lg:py-20">
+      <JsonLd data={webPageJsonLd(pageSeo.title, pageSeo.path, pageSeo.description)} />
       <div className="mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-8">
         <h1 className="text-3xl font-bold text-white md:text-4xl">About CertPro Plumbing</h1>
         <p className="mt-4 max-w-3xl text-base leading-7 text-slate-300">

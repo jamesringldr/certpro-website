@@ -1,5 +1,7 @@
 'use client'
 
+import posthog from 'posthog-js'
+
 declare global {
   interface Window {
     dataLayer: unknown[]
@@ -52,6 +54,10 @@ export function trackGa4Event(name: Ga4ConversionEventName, params: Ga4EventPara
   const payload: Ga4EventParams = {
     ...params,
     page_path: resolvePagePath(params.page_path),
+  }
+
+  if (process.env.NEXT_PUBLIC_POSTHOG_PROJECT_TOKEN) {
+    posthog.capture(name, payload)
   }
 
   if (typeof window.gtag === 'function') {

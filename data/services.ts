@@ -34,8 +34,8 @@ export const SERVICES: Service[] = [
     solution: 'We dispatch an emergency tech, isolate the issue fast, and stabilize your plumbing immediately.',
     responseTime: 'Fast rapid response and dispatch across the North KC metro.',
     faqs: [
-      { question: 'Do you charge extra at night?', answer: 'We provide transparent pricing before work begins.' },
-      { question: 'How fast can someone arrive?', answer: 'Most calls are serviced as quickly as route conditions allow.' },
+      { question: 'What counts as a plumbing emergency in North Kansas City?', answer: 'Active water you cannot stop, sewage coming up a drain, or a gas odor near plumbing equipment.' },
+      { question: 'Should I shut the water off before the plumber arrives?', answer: 'Yes, if you can do it safely. Use the fixture stop or the house main. We will help you find the valve on the call.' },
     ],
   },
   {
@@ -58,8 +58,8 @@ export const SERVICES: Service[] = [
     solution: 'We locate the fault, explain options clearly, and complete durable repairs.',
     responseTime: 'Priority scheduling for active sewer issues.',
     faqs: [
-      { question: 'Do you inspect before repairing?', answer: 'Yes, we verify the issue before recommending repairs.' },
-      { question: 'Can tree roots cause backups?', answer: 'Yes, root intrusion is a common source of sewer problems.' },
+      { question: 'How do you tell a clog from a broken sewer line?', answer: 'Multi-fixture backups and sewage at a floor drain point at the building sewer. A camera confirms whether the pipe is blocked, offset, or collapsed.' },
+      { question: 'Can tree roots in Gladstone clay laterals be repaired without a full replacement?', answer: 'Sometimes, if one joint failed and the rest of the line is sound. Systemic clay failure needs replacement.' },
     ],
   },
   {
@@ -70,8 +70,8 @@ export const SERVICES: Service[] = [
     solution: 'We diagnose heater performance issues and repair or replace failed components.',
     responseTime: 'Fast scheduling for no-hot-water calls.',
     faqs: [
-      { question: 'Do you service tankless units?', answer: 'Yes, we service both traditional and tankless systems.' },
-      { question: 'Should I repair or replace?', answer: 'We recommend the best value based on age, condition, and cost.' },
+      { question: 'Do you repair tankless water heaters in North Kansas City?', answer: 'Yes. We diagnose codes, scale, gas, and venting, and we flush when that is the honest fix.' },
+      { question: 'When is it cheaper to replace a water heater than repair it?', answer: 'When the steel tank is leaking, a second major part is failing on an old unit, or a tankless heat exchanger is done.' },
     ],
   },
   {
